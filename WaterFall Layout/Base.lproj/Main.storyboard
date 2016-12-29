@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aYd-sq-XNE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photos-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GcV-oY-aWd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewLayout key="collectionViewLayout" id="R21-8Z-3pG" customClass="CHTCollectionViewWaterfallLayout"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCellID" id="Wts-vv-kSr" customClass="PhotoCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="171" height="251"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="171" height="251"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wla-hk-yQw">
+                                                    <rect key="frame" x="12" y="12" width="147" height="227"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Wla-hk-yQw" firstAttribute="leading" secondItem="Wts-vv-kSr" secondAttribute="leading" constant="12" id="5gm-0u-n7z"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wla-hk-yQw" secondAttribute="trailing" constant="12" id="Ubf-Mm-7e1"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wla-hk-yQw" secondAttribute="bottom" constant="12" id="YS0-dk-qXT"/>
+                                            <constraint firstItem="Wla-hk-yQw" firstAttribute="top" secondItem="Wts-vv-kSr" secondAttribute="top" constant="12" id="vh0-Zo-tG6"/>
+                                        </constraints>
+                                        <size key="customSize" width="171" height="251"/>
+                                        <connections>
+                                            <outlet property="image" destination="Wla-hk-yQw" id="UVI-gb-AXI"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="h1q-lv-cXm"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lac-xy-YvF"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GcV-oY-aWd" secondAttribute="bottom" id="0MC-ue-WfV"/>
+                            <constraint firstItem="GcV-oY-aWd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DqA-tk-21A"/>
+                            <constraint firstItem="GcV-oY-aWd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="OL6-Wg-hqZ"/>
+                            <constraint firstAttribute="trailing" secondItem="GcV-oY-aWd" secondAttribute="trailing" id="PsH-bm-o2F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Photos" id="bRJ-a7-TW0"/>
+                    <connections>
+                        <outlet property="collectionView" destination="GcV-oY-aWd" id="HSI-Oy-5SS"/>
+                        <outlet property="flowLayout" destination="R21-8Z-3pG" id="Lte-oc-Yoy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="131.78410794602701"/>
+        </scene>
+        <!--Photo Detail-->
+        <scene sceneID="66c-q3-WfE">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewControllerID" title="Photo Detail" id="q1j-ZH-dDe" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZZ3-NG-TMR"/>
+                        <viewControllerLayoutGuide type="bottom" id="QIw-9h-cFc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4iS-Fp-sWa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lbB-K6-BxZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QIw-9h-cFc" firstAttribute="top" secondItem="lbB-K6-BxZ" secondAttribute="bottom" id="33a-Ju-Ez5"/>
+                            <constraint firstAttribute="trailing" secondItem="lbB-K6-BxZ" secondAttribute="trailing" id="DM0-WP-sia"/>
+                            <constraint firstItem="lbB-K6-BxZ" firstAttribute="leading" secondItem="4iS-Fp-sWa" secondAttribute="leading" id="FAM-UB-8nX"/>
+                            <constraint firstItem="lbB-K6-BxZ" firstAttribute="top" secondItem="ZZ3-NG-TMR" secondAttribute="bottom" id="uVc-vQ-Fzq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fullImage" destination="lbB-K6-BxZ" id="YnN-A6-7MT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5un-iB-Jr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796" y="131.78410794602701"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hoM-7R-B1y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aYd-sq-XNE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="axf-wD-7bB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="e72-Hm-hnL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wm5-hY-vFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="131.78410794602701"/>
+        </scene>
+    </scenes>
+</document>
